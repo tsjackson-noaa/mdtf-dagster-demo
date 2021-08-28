@@ -1,0 +1,7 @@
+# configuration for mdtf_test pipeline in mdtf_dagster_demo_1
+
+solids:
+  init_harness:
+    config:
+      input_file: "/Users/tsj/Documents/climate/MDTF-diagnostics/temp_test.jsonc"
+      extra_flags: ["-v"]

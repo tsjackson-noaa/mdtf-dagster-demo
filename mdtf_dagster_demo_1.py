@@ -9,14 +9,6 @@ from src import core, diagnostic, cli, util, data_sources, environment_manager
 
 import dagster as dg
 
-# solids:
-#   init_harness:
-#     config:
-#       input_file: "/Users/tsj/Documents/climate/MDTF-diagnostics/temp_test.jsonc"
-#       extra_flags: ["-v"]
-
-# --------------------------------------
-
 @dg.solid(
     output_defs=[
         dg.OutputDefinition(
