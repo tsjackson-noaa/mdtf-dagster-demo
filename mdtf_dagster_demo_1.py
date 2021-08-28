@@ -85,15 +85,12 @@ def data_setup(context, case):
 def data_query(context, case_v):
     case, vv = case_v
 
-
     context.log.info(vv.debug_str())
     def _data_query(v):
         try:
             context.log.info(f"Querying {v.translation}.")
             case.query_dataset(v) # sets v.data
             if not v.data:
-
-                context.log.info('X2')
                 raise util.DataQueryEvent("No data found.", v)
             v.stage = diagnostic.VarlistEntryStage.QUERIED
             return v
@@ -108,19 +105,14 @@ def data_query(context, case_v):
             raise exc
 
     try:
-
-        context.log.info('X1')
         return _data_query(vv)
     except Exception as exc:
-        context.log.info('X3')
         for v_alt_set in vv.iter_alternates():
             for v_alt in v_alt_set:
                 context.log.info(v_alt.full_name)
                 try:
-                    context.log.info('X4')
                     return _data_query(v_alt)
                 except Exception:
-                    context.log.info('X5')
                     continue
         raise exc
 
